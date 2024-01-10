@@ -55,7 +55,7 @@ public class CommonInterceptor implements HandlerInterceptor {
     }
 
     private void loadSiteConfig(HttpServletRequest request) {
-        String[] excludes = {".js", ".css", ".png", ".jpg", ".jpeg", ".gif", ".pdf", ".xls", ".xlxs", ".ppt"};
+        String[] excludes = {".js", ".css", ".png", ".jpg", ".jpeg", "gif", ".pdf", ".xls", ".xlxs", ".ppt"};
 
         String URL = request.getRequestURI().toLowerCase();
 
