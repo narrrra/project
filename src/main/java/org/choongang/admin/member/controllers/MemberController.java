@@ -41,16 +41,15 @@ public class MemberController implements ExceptionProcessor {
 
         ListData<Member> data = infoService.getList(search);
 
-        model.addAttribute("items", data.getItems());
-        model.addAttribute("pagination", data.getPagination());
+        model.addAttribute("items", data.getItems()); // 목록
+        model.addAttribute("pagination", data.getPagination()); // 페이징
 
         return "admin/member/list";
     }
 
     private void commonProcess(String mode, Model model) {
         mode = Objects.requireNonNullElse(mode, "list");
-
-        String pageTitle = "회원목록";
+        String pageTitle = "회원 목록";
 
         model.addAttribute("subMenuCode", mode);
         model.addAttribute("pageTitle", pageTitle);
