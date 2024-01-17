@@ -157,4 +157,29 @@ public class Utils {
     public String[] getParams(String name) {
         return request.getParameterValues(name);
     }
+
+
+    /**
+     * 비회원 UID(Unique ID)
+     *          IP + 브라우저 정보
+     *
+     * @return
+     */
+    public int guestUid() {
+        String ip = request.getRemoteAddr();
+        String ua = request.getHeader("User-Agent");
+
+        return Objects.hash(ip, ua);
+    }
+
+    /**
+     * 삭제 버튼 클릭시 "정말 삭제하시겠습니까?" confirm 대화상자
+     *
+     * @return
+     */
+    public String confirmDelete() {
+        String message = Utils.getMessage("Confirm.delete.message", "commons");
+
+        return String.format("return confirm('%s');", message);
+    }
 }
